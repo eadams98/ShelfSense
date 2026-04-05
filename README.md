@@ -121,3 +121,50 @@ The MVP will be considered successful when:
 ## Why This Project
 
 ShelfSense is meant to solve a real-life organization problem while also serving as a practical engineering project. It is intentionally scoped to be useful, buildable, and extendable without becoming bloated too early.
+
+## Local Setup
+
+These steps are for macOS and assume Python 3 is already installed.
+
+### 1. Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd shelfsense
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+After activation, your terminal prompt will usually show (.venv).
+
+```bash
+python -m pip install --upgrade pip
+pip install "fastapi[standard]"
+
+OR
+If a requirements.txt file already exists, install from that instead:
+pip install -r requirements.txt
+
+fastapi dev app/main.py
+```
+
+Open the local URL shown in the terminal, usually:
+http://127.0.0.1:8000
+
+The /docs route provides the Swagger UI for testing endpoints.
+
+When you are done working, you can leave the virtual environment with:
+```bash
+deactivate
+
+reactivate with
+cd shelfsense
+source .venv/bin/activate
+```
+
+A couple notes for you:
+
+- once you install more packages, update `requirements.txt` with:
+```bash
+pip freeze > requirements.txt
+```
